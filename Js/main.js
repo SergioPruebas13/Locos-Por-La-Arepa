@@ -26,7 +26,7 @@ function get_data (){
     var array_temp =[];
     
    
-    var url = "http://127.0.0.1:5500/Data/data-base.json";
+    var url = "https://sergiopruebas13.github.io/Locos-Por-La-Arepa/Data/data-base.json";
     
         fetch(url)
         .then(function(res){
@@ -71,7 +71,7 @@ function cargar_data (data){
                         </p>
                     </div>
                     <div class="ver-menu">
-                        <a href="/Menu/menu.html?id=${data[i].id_obj}">
+                        <a href="/Locos-Por-La-Arepa/Menu/menu.html?id=${data[i].id_obj}">
                         <img src="https://i.postimg.cc/2Sf50ZDF/icon-menu.png">
                         Ver Menú
                         </a>
