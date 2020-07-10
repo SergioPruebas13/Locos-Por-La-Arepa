@@ -50,9 +50,13 @@
 }
 
 .descripcion-tiket{
+    /* background: red; */
     width: 100%;
     height: 82px;
-    
+
+    position: fixed;
+    bottom: 0;
+    margin: 0 0 5px 0;
     /* flex */
     display: flex;
     flex-direction: column;
