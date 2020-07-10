@@ -29,7 +29,7 @@ function main (){
         var aclaracion_pedido_text = document.getElementById('aclaracion-pedido-text').value;
         // enlistar_producto_menu(id_desc_menu);
         if (aclaracion_pedido_text == "") {
-            GuardarDatosLS(id_desc_menu,`Ninngun`);
+            GuardarDatosLS(id_desc_menu,`Ninguna`);
         }else{
             GuardarDatosLS(id_desc_menu,aclaracion_pedido_text);
         }
@@ -239,17 +239,19 @@ function ver_mas_producto (id_del_producto){
                      if (arra_temp_menu[i].id_descripcion_menu == id_del_producto) {
                         margen_pedido.innerHTML = `
                         <div class="anadir-a-pedido">
-                            <div class="image-pedido-amplia">
-                                <img src="${arra_temp_menu[i].img}" alt="">
-                            </div>
-                            <div class="title-descripcion-precio">
-                                <span class="title-pedo">${arra_temp_menu[i].nombre.replace(/\b[a-z]/g,c=>c.toUpperCase())}</span>
-                                <p>${arra_temp_menu[i].descripcion}</p>
-                                <span class="precio-pedo">Precio: $ ${new Intl.NumberFormat().format(arra_temp_menu[i].valor)}</span>
-                            </div>
-                            <div class="aclaracion-pedido">
-                                <label for="text">¿Deseas Algo Especial en Tu Pedido?</label>
-                                <textarea name="" id="aclaracion-pedido-text" placeholder="${Aclarar_messa}" cols="40" rows="15"></textarea>
+                            <div class="descipcin-pedido-scroll">
+                                <div class="image-pedido-amplia">
+                                    <img src="${arra_temp_menu[i].img}" alt="">
+                                </div>
+                                <div class="title-descripcion-precio">
+                                    <span class="title-pedo">${arra_temp_menu[i].nombre.replace(/\b[a-z]/g,c=>c.toUpperCase())}</span>
+                                    <p>${arra_temp_menu[i].descripcion}</p>
+                                    <span class="precio-pedo">Precio: $ ${new Intl.NumberFormat().format(arra_temp_menu[i].valor)}</span>
+                                </div>
+                                <div class="aclaracion-pedido">
+                                    <label for="text">¿Deseas Algo Especial en Tu Pedido?</label>
+                                    <textarea name="" id="aclaracion-pedido-text" placeholder="${Aclarar_messa}" cols="40" rows="15"></textarea>
+                                </div>
                             </div>
                             <div class="buttons-pedido">
                                 <button class="atras-pedido-button">Atras</button>
@@ -459,7 +461,7 @@ function SendMessageTiket (){
                 message += ` 
                             | - PRODUCTO ${i+1}
                             - Categoria: ${product_cart_menu[i].nombre_menu.replace(/\b[a-z]/g,c=>c.toUpperCase())}
-                            - Descripcion: ${product_cart_menu[i].descripcion_menu}
+                            - Pedido Especial: ${product_cart_menu[i].aclarar_menu}
                             - Cantidad: ${product_cart_menu[i].cantida_menu}
                             - Valor: $ ${new Intl.NumberFormat().format((product_cart_menu[i].valor_menu * product_cart_menu[i].cantida_menu))} - |
                              `;

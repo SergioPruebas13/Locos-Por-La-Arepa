@@ -110,7 +110,7 @@ body{
     /* margin-left: 100px; */
     width: 95%;
     margin: auto;
-    height: 170px;
+    height: 180px;
     border-radius: 5px;
     margin-top: 8px;
 
@@ -170,7 +170,7 @@ body{
 
 .descripcion-producto{
     /* background: red; */
-    height: 35%;
+    height: 55px;
     color: #626466;
     text-align: justify;
     margin-right: 5px;
@@ -227,6 +227,15 @@ body{
     border-radius: 10px;
     height: 100%;
     margin: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.descipcin-pedido-scroll{
+    /* background: rosybrown; */
+    height: 100%;
+    overflow: scroll;
 }
 
 .image-pedido-amplia{
@@ -280,9 +289,9 @@ body{
 .aclaracion-pedido{
     /* background: royalblue; */
     width: 95%;
-    height: 24%;
+    /* height: 24%; */
     margin: auto;
-    overflow: hidden;
+    /* overflow: hidden; */
 
     display: flex;
     flex-direction: column;
@@ -292,23 +301,27 @@ body{
 
 .aclaracion-pedido label{
     color: rgb(87, 84, 84);
+    text-align: center;
     margin-bottom: 7px;
 }
 
 .aclaracion-pedido textarea{
     /* background: yellowgreen; */
+    width: 100%;
+    height: 200px;
     border-radius: 5px;
+
     
 }
 
 .buttons-pedido{
     /* background: chocolate; */
-    width: 95%;
-    height: 10.5%;
+    width: 100%;
+    height: 55px;
     margin: auto;
 
-    position: fixed;
-    bottom: 0;
+    /* position: fixed;
+    bottom: 0; */
 
     display: flex;
     justify-content: space-around;
@@ -318,8 +331,9 @@ body{
 .buttons-pedido button{
     background: #2F353A;
     color: #fff;
-    padding: 1em;
-    width: 10em;
+    font-size: 12px;
+    padding: 4.2%;
+    width: 40%;
     border: none;
     border-radius: 5px;
 }
