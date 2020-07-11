@@ -105,6 +105,7 @@ hr{
 .butt{
     width: 90%;
     height: 2.5em;
+    margin-bottom: 5px;
     text-align: center;
 }
 
@@ -175,7 +176,7 @@ hr{
 .delete-enlistado{
     width: 100%;
     margin-top: 10px;
-    text-align: center;
+    text-align: right;
 }
 
 .delete-enlistado button{
@@ -194,6 +195,8 @@ hr{
 }
 
 .button-cantidad{
+    /* ********************************************* para mostrar los botones de cantidad */
+    display: none;
     /* text-align: right; */
     min-width: 100px;
     width: 30%;

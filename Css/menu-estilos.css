@@ -235,6 +235,7 @@ body{
 .descipcin-pedido-scroll{
     /* background: rosybrown; */
     height: 100%;
+    margin-bottom: 60px;
     overflow: scroll;
 }
 
@@ -280,9 +281,32 @@ body{
 
 .precio-pedo{
     /* background: yellowgreen; */
-    margin: 5% 5% 10% 5%;
+    margin: 5% 5% 8% 5%;
     font-weight: bold;
     font-size: 1.1em;
+}
+
+.pedido-cantidad{
+    /* background: red; */
+    text-align: center;
+}
+
+.pedido-cantidad-buttos input{
+    background: #fff;
+    color: #000;
+    width: 30px;
+    height: 25.7px;
+    /* border: none; */
+    text-align: center;
+}
+
+.pedido-cantidad-buttos button{
+    background: #2F353A;
+    color: #fff;
+    border: none;
+    width: 35px;
+    height: 25px;
+    margin: 10px 0 25px 0;
 }
 
 

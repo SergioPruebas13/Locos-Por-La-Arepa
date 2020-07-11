@@ -9,6 +9,7 @@ var num_band = 0;
 
 var button_variable = document.querySelector('#button-variable');
 
+
 function main (){
     // Obtener los datos de JSON
      get_data(); 
@@ -27,11 +28,12 @@ function main (){
     $('body').on('click', '.pedido-anadir-butt', function(){
         var id_desc_menu = $(this).attr('id_desc_menu');
         var aclaracion_pedido_text = document.getElementById('aclaracion-pedido-text').value;
+        var pedidos_cantidad_input = document.querySelector('#pedidos-cantidad-input').value;
         // enlistar_producto_menu(id_desc_menu);
         if (aclaracion_pedido_text == "") {
-            GuardarDatosLS(id_desc_menu,`Ninguna`);
+            GuardarDatosLS(id_desc_menu,`Ninguna`,(pedidos_cantidad_input*1));
         }else{
-            GuardarDatosLS(id_desc_menu,aclaracion_pedido_text);
+            GuardarDatosLS(id_desc_menu,aclaracion_pedido_text,(pedidos_cantidad_input*1));
         }
         $('.margen-pedido').removeClass('Active-margen-pedido');  
         pintar_cantidad_carrito();
@@ -45,7 +47,8 @@ function main (){
     // --------------------------Llama a la funcion de ver mas Producto
     $('body').on('click','.pedido-ver-mas',function(){
         var id_desc_menu = $(this).attr('id_desc_menu');
-        $('.margen-pedido').addClass('Active-margen-pedido');  
+        $('.margen-pedido').addClass('Active-margen-pedido');
+        // alert(id_desc_menu)  
         ver_mas_producto(id_desc_menu);
     })
 
@@ -55,7 +58,6 @@ function main (){
     })
 
     
-
     // -----------------------------Limpiar Tiket 
     $('body').on('click','#limpiar-tiket-button',function(){
         localStorage.removeItem('product_cart_menu');
@@ -76,7 +78,7 @@ function get_data (){
     var url = window.location.search;
     var url_id = url.split(`?id=`).join("");
    
-    var url = "https://sergiopruebas13.github.io/Locos-Por-La-Arepa/Data/data-base.json";    
+    var url = "http://127.0.0.1:5500/Data/data-base.json";    
         fetch(url)
         .then(function(res){
             return res.json();
@@ -177,22 +179,24 @@ function cargar_categorias_menu (){
                     for (let i = 0; i < arra_temp_menu.length; i++) {
                         html += `
                         <div class="margen-ejemplo">
-                            <div class="pedido-ejemplo">
-                                <div class="image-pedido">
-                                    <img src="https://i.postimg.cc/4340vgqV/image-default.png" alt="">
-                                </div>
-                                <div class="descr-pedido">
-                                    <div class="descr-title">
-                                        <p>
-                                        ${arra_temp_menu[i].nombre.replace(/\b[a-z]/g,c=>c.toUpperCase())}
-                                        </p>
+                            <div class="pedido-ver-mas" id_desc_menu="${arra_temp_menu[i].id_descripcion_menu}">
+                                <div class="pedido-ejemplo" >
+                                    <div class="image-pedido">
+                                        <img src="https://i.postimg.cc/4340vgqV/image-default.png" alt="">
                                     </div>
-                                    <div class="descripcion-producto">
-                                        ${arra_temp_menu[i].descripcion}
-                                    </div>
-                                    <div class="precio-button">
-                                        <span>Precio: $ ${new Intl.NumberFormat().format(arra_temp_menu[i].valor)}</span>
-                                        <button class="pedido-ver-mas" id_desc_menu="${arra_temp_menu[i].id_descripcion_menu}">ver mas</button>
+                                    <div class="descr-pedido">
+                                        <div class="descr-title">
+                                            <p>
+                                            ${arra_temp_menu[i].nombre.replace(/\b[a-z]/g,c=>c.toUpperCase())}
+                                            </p>
+                                        </div>
+                                        <div class="descripcion-producto">
+                                            ${arra_temp_menu[i].descripcion}
+                                        </div>
+                                        <div class="precio-button">
+                                            <span>Precio: $ ${new Intl.NumberFormat().format(arra_temp_menu[i].valor)}</span>
+                                            
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -248,6 +252,14 @@ function ver_mas_producto (id_del_producto){
                                     <p>${arra_temp_menu[i].descripcion}</p>
                                     <span class="precio-pedo">Precio: $ ${new Intl.NumberFormat().format(arra_temp_menu[i].valor)}</span>
                                 </div>
+                                <div class="pedido-cantidad">
+                                    <p><span id="pedido-cantidad-span">Cantidad 1</span></p>
+                                    <div class="pedido-cantidad-buttos">
+                                        <button onclick="menosCantidadPedido()"> - </button>
+                                        <input type="text" value="1" disabled id="pedidos-cantidad-input">
+                                        <button onclick="masCantidadPedido()"> + </button>
+                                    </div>
+                                </div>
                                 <div class="aclaracion-pedido">
                                     <label for="text">¿Deseas Algo Especial en Tu Pedido?</label>
                                     <textarea name="" id="aclaracion-pedido-text" placeholder="${Aclarar_messa}" cols="40" rows="15"></textarea>
@@ -266,8 +278,34 @@ function ver_mas_producto (id_del_producto){
     }
 }
 
+
+// ---------------------------------------------- QUITAR CANTIDAD A PEDIDDO
+function menosCantidadPedido (){
+     var pedidos_cantidad_input = document.querySelector('#pedidos-cantidad-input');
+     var pedido_cantidad_span = document.querySelector('#pedido-cantidad-span');
+     var vari = (pedidos_cantidad_input.value*1) - 1;
+
+    if (pedidos_cantidad_input.value == 1) {
+        alert('No Puede ser Cero la cantidad ¡¡¡')
+    }else{
+        pedidos_cantidad_input.value = `${vari}`;
+        pedido_cantidad_span.innerHTML = `Cantidad ${vari}`;
+    }
+}
+
+// ---------------------------------------------- AGREGAR CANTIDAD A PEDIDDO
+function masCantidadPedido (){
+    var pedidos_cantidad_input = document.querySelector('#pedidos-cantidad-input');
+    var pedido_cantidad_span = document.querySelector('#pedido-cantidad-span');
+    var vari = (pedidos_cantidad_input.value*1) + 1;
+    pedidos_cantidad_input.value = `${vari}`;
+    pedido_cantidad_span.innerHTML = `Cantidad ${vari}`;
+}
+
+
+
 // ----------------------------------------------- GUARDAR DATOS AL LS
-function GuardarDatosLS(id_del_producto,aclaracion_pedido_text){
+function GuardarDatosLS(id_del_producto,aclaracion_pedido_text,pedidos_cantidad_input){
 
     var url = window.location.search;
     var url_id = url.split(`?id=`).join("");
@@ -295,7 +333,7 @@ function GuardarDatosLS(id_del_producto,aclaracion_pedido_text){
                                 // descripcion_menu: arra_temp_menu[i].descripcion,
                                 aclarar_menu: aclaracion_pedido_text,
                                 valor_menu: arra_temp_menu[i].valor,
-                                cantida_menu: 1
+                                cantida_menu: pedidos_cantidad_input
                             }
                             // console.log(productos_Carro);
                             id_repetido = productos_Carro.id_menu;
@@ -574,14 +612,3 @@ function pintar_cantidad_carrito (){
 
 }
 
-
-
-
-
-
-
-
-
-
-
-// <button class="pedido-anadir-butt" id_desc_menu="${arra_temp_menu[i].id_descripcion_menu}">ver mas</button>
