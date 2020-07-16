@@ -177,7 +177,10 @@ hr{
 .delete-enlistado{
     width: 100%;
     margin-top: 10px;
-    text-align: right;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .delete-enlistado button{

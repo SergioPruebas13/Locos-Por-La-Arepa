@@ -65,11 +65,36 @@ function main (){
         pintar_cantidad_carrito();
     })
 
-     // -----------------------------Solicitud de envio 
+    // --------------------------Cerrar a la funcion de Datos Usuario
+    // $('body').on('click','#',function(){
+    //     $('.margen-pedido').removeClass('Active-margen-pedido');  
+    // })
+     // ----------------------------- Abrir a la funcion de Datos Usuario
      $('body').on('click','.button-tiket',function(){
-        SendMessageTiket();
+        $('.datos-user').addClass('Active-datos-user'); 
+        mostrarDatosUserInput();
     })
 
+    // ----------------------------- Cerrar a la funcion de Datos Usuario
+    $('body').on('click','#button-Atras-pedido',function(){
+        $('.datos-user').removeClass('Active-datos-user');  
+    })
+
+     // ----------------------------- Solicitud de envios 
+     $('body').on('click','#button-solicitar-pedido',function(){
+        
+        // var bool = confirm('Esta Seguro de Enviar este Pedido')
+        // if(bool){
+            UserdataGuardarDatosLS();
+            SendMessageTiket(); 
+            $('.datos-user').removeClass('Active-datos-user');  
+            $('.pedido-tiket').removeClass('Active');
+            localStorage.removeItem('product_cart_menu');
+            CargarDatosLS();
+            pintar_cantidad_carrito();
+        // }        
+    })
+    
     
 }
 // ----------------------------------------------- Obtener datos de DB
@@ -78,7 +103,7 @@ function get_data (){
     var url = window.location.search;
     var url_id = url.split(`?id=`).join("");
    
-    var url = "https://sergiopruebas13.github.io/Locos-Por-La-Arepa/Data/data-base.json";    
+    var url = "http://127.0.0.1:5500/Data/data-base.json";    
         fetch(url)
         .then(function(res){
             return res.json();
@@ -169,8 +194,8 @@ function cargar_categorias_menu (){
                  `;
 
                 arra_temp_menu = categoria_menu_array[i].descripcion_menu;
-                
-                if (arra_temp_menu == undefined) {
+
+                if (arra_temp_menu.length == 0) {
                     band = 1;
                 }
                 else
@@ -195,7 +220,6 @@ function cargar_categorias_menu (){
                                         </div>
                                         <div class="precio-button">
                                             <span>Precio: $ ${new Intl.NumberFormat().format(arra_temp_menu[i].valor)}</span>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -337,6 +361,7 @@ function GuardarDatosLS(id_del_producto,aclaracion_pedido_text,pedidos_cantidad_
                             }
                             // console.log(productos_Carro);
                             id_repetido = productos_Carro.id_menu;
+                            
                             // console.log(id_repetido);
                             // var prueba = productos_Carro.id_menu.split(`${selec.value.toLowerCase()}`).join("");
                             // console.log(prueba);
@@ -345,23 +370,23 @@ function GuardarDatosLS(id_del_producto,aclaracion_pedido_text,pedidos_cantidad_
             }            
         }
     }
+    
+    if (localStorage.getItem('product_cart_menu') === null) {
+        let product_cart_menu = [];
+        product_cart_menu.push(productos_Carro);
+        localStorage.setItem('product_cart_menu', JSON.stringify(product_cart_menu));
+            CargarDatosLS();
+    }else{
+        let product_cart_menu = JSON.parse(localStorage.getItem('product_cart_menu'));
+        var verificar = buscarRepetido(id_repetido);
 
-        if (localStorage.getItem('product_cart_menu') === null) {
-            let product_cart_menu = [];
+        // console.log(verificar)
+        if (verificar == 0) {
             product_cart_menu.push(productos_Carro);
             localStorage.setItem('product_cart_menu', JSON.stringify(product_cart_menu));
-                CargarDatosLS();
-        }else{
-            let product_cart_menu = JSON.parse(localStorage.getItem('product_cart_menu'));
-            var verificar = buscarRepetido(id_repetido);
-
-            // console.log(verificar)
-            if (verificar == 0) {
-                product_cart_menu.push(productos_Carro);
-                localStorage.setItem('product_cart_menu', JSON.stringify(product_cart_menu));
-                CargarDatosLS();
-            }   
-        }
+            CargarDatosLS();
+        }   
+    }      
 } 
 
 //------------------------------------------------ Cargar Datos del Carrito de Compras en el LS
@@ -391,7 +416,7 @@ function CargarDatosLS(){
                         </div>
                         <div class="prod-list-precio-cantidad">
                             <div class="precio-cantidad">
-                                Precio: <span>$ ${new Intl.NumberFormat().format(valor_producto)}</span> <br>
+                                Precio: <span>$ ${new Intl.NumberFormat().format(product_cart_menu[i].valor_menu)}</span> <br>
                                 Cantidad: <span>${product_cart_menu[i].cantida_menu}</span>
                             </div>
                             <div class="button-cantidad">
@@ -401,6 +426,7 @@ function CargarDatosLS(){
                             </div>
                         </div>
                         <div class="delete-enlistado">
+                                <p><b>Total: </b>$ ${new Intl.NumberFormat().format(valor_producto)}</p>
                                 <button id="" onclick="EliminarDatos('${product_cart_menu[i].id_menu}')">Eliminar de Pedido</button>
                         </div>
                     </div>
@@ -486,32 +512,82 @@ function quitarCantidad (id_ls){
 // ----------------------------------------------- Funcion para enviar mensaje en Whatsapp
 function SendMessageTiket (){
 
+    let user_data = JSON.parse(localStorage.getItem('user-data'));
     var product_cart_menu = JSON.parse(localStorage.getItem('product_cart_menu'));
     var message = "";
     var number = "573103368887";
     var valor_total = 0;
+    var leng_lar;
 
     if (product_cart_menu==null) {
         
     }else{
         for (let i= 0; i < product_cart_menu.length; i++) {
-                valor_total = valor_total + (product_cart_menu[i].valor_menu * product_cart_menu[i].cantida_menu);
+          leng_lar = "";
+          valor_total = valor_total + (product_cart_menu[i].valor_menu * product_cart_menu[i].cantida_menu);
+          if (product_cart_menu[i].nombre_menu.replace(/\b[a-z]/g,c=>c.toUpperCase()).length > 22) {
+              leng_lar = '||';
+          }
                 message += ` 
-                            | - PRODUCTO ${i+1}
-                            - Categoria: ${product_cart_menu[i].nombre_menu.replace(/\b[a-z]/g,c=>c.toUpperCase())}
-                            - Pedido Especial: ${product_cart_menu[i].aclarar_menu}
-                            - Cantidad: ${product_cart_menu[i].cantida_menu}
-                            - Valor: $ ${new Intl.NumberFormat().format((product_cart_menu[i].valor_menu * product_cart_menu[i].cantida_menu))} - |
-                             `;
+                            PRODUCTO ${i+1}
+
+                            Categoria: ${product_cart_menu[i].nombre_menu.replace(/\b[a-z]/g,c=>c.toUpperCase())}
+                            
+                            Pedido Especial: ${product_cart_menu[i].aclarar_menu}
+                            
+                            Cantidad: ${product_cart_menu[i].cantida_menu}
+                            
+                            Valor: $ ${new Intl.NumberFormat().format((product_cart_menu[i].valor_menu * product_cart_menu[i].cantida_menu))}
+                            
+                            ---------------------------------
+
+                            `;
         }
-        message += ` ---------- Valor Total: ${new Intl.NumberFormat().format(valor_total)}`;
+        message +=  `
+                    Valor Total: $ ${new Intl.NumberFormat().format(valor_total)}
+                    
+                    Nombre: ${user_data.ls_user_nombre}
+
+                    Dirección: ${user_data.ls_user_direccion}
+
+                    Barrio: ${user_data.ls_user_barrio}
+
+                    `;
     }   
 
-    // console.log(message);
+    console.log(message);
     
     var url = `https://api.whatsapp.com/send?phone=${number}&text=${message}`;
 
     window.open(url);
+}
+
+
+// ------------------------------------------------ Creacion de los datos del Usuario en local storage
+
+function UserdataGuardarDatosLS (){
+
+    var user_nombre = document.querySelector('#nombre-user').value;
+    var user_direccion= document.querySelector('#direccion-user').value;
+    var user_barrio = document.querySelector('#barrio-user').value;
+
+    var user_data_ls = {
+        ls_user_nombre: user_nombre,
+        ls_user_direccion: user_direccion,
+        ls_user_barrio: user_barrio
+    }
+
+    if (localStorage.getItem('user-data') === null) {
+        localStorage.setItem('user-data', JSON.stringify(user_data_ls));
+    }else{
+        let user_data = JSON.parse(localStorage.getItem('user-data'));
+
+        user_data.ls_user_nombre = user_nombre;
+        user_data.ls_user_direccion = user_direccion;
+        user_data.ls_user_barrio = user_barrio;
+
+        localStorage.setItem('user-data', JSON.stringify(user_data));
+    }    
 }
 
 //-----------------------Eliminar tareas de Tiket de compras 
@@ -541,6 +617,7 @@ function  buscarRepetido(id_del_producto){
         
         if (uno == dos) {
             // console.log('No haga nada')
+            alert('Este Producto ya esta Enlistado')
             bol=1;
         }else{
             // console.log('Ingrese Nuevo Producto')
@@ -611,4 +688,57 @@ function pintar_cantidad_carrito (){
         pedido_precio.innerHTML = `$ ${new Intl.NumberFormat().format(precio)}`;
 
 }
+
+// --------------------------------------------------- Mostrar los datos de user en los input 
+function mostrarDatosUserInput (){
+    let user_data = JSON.parse(localStorage.getItem('user-data'));
+    console.log(user_data);
+    if (user_data == null) {
+        
+    }else{
+        document.getElementById('nombre-user').value = user_data.ls_user_nombre;
+        document.getElementById('direccion-user').value = user_data.ls_user_direccion;
+        document.getElementById('barrio-user').value = user_data.ls_user_barrio;
+    }
+}
+
+// ----------------------------------------------------- Validacion Solo letras 
+function soloLetras(e){
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+    especiales = "8-37-39-46";
+
+    tecla_especial = false
+    for(var i in especiales){
+         if(key == especiales[i]){
+             tecla_especial = true;
+             break;
+         }
+     }
+
+     if(letras.indexOf(tecla)==-1 && !tecla_especial){
+         return false;
+     }
+ }
+
+ // ----------------------------------------------------- Validacion Solo letras y numeros 
+function soloLetrasynumeros(e){
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz0123456789-";
+    especiales = "8-37-39-46";
+
+    tecla_especial = false
+    for(var i in especiales){
+         if(key == especiales[i]){
+             tecla_especial = true;
+             break;
+         }
+     }
+
+     if(letras.indexOf(tecla)==-1 && !tecla_especial){
+         return false;
+     }
+ }
 

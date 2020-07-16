@@ -88,17 +88,17 @@ body{
 
 
 /* No menu */
-/* 
+
 .no-menu{
-    background: yellowgreen;
-    background: #c0c0c0;
+    /* background: yellowgreen; */
+    background: #fff;
     padding: 10%;
     margin: 2%;
     border-radius: 3px;
     text-align: center;
     font-size: 2em;
     font-family: 'Times New Roman', Times, serif;
-} */
+}
 
 /* ------- */
 
@@ -362,6 +362,78 @@ body{
     border-radius: 5px;
 }
 
+/* ------------------------------------------------- */
+
+
+/* ------------- DATOS PERSONALES -----------------  */
+
+.datos-user{
+    display: none;
+    background: #fff;
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+
+    position: fixed;
+    top: 0;
+    z-index: 200;
+}
+
+.Active-datos-user{
+    display: block;
+}
+
+.card-datos-user{
+    /* background: red; */
+    width: 90%;
+    height: 300px;
+    margin: auto;
+    margin-top: 70px;
+}
+
+.title-card-user-datos{
+    /* background: yellow; */
+    text-align: center;
+    padding: 7px;
+}
+
+.data-card-user-datos{
+    /* background: yellowgreen; */
+    width: 100%;
+    margin-top: 15px;
+}
+
+.data-card-user-datos label{
+    /* background: hotpink; */
+    margin-left: 5px;
+}
+
+.data-card-user-datos input{
+    /* background: red; */
+    border: 1px solid gray;
+    width: 95%;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.button-card-user-datos{
+    /* background: red; */
+    margin-top: 35px;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-card-user-datos button{
+    background: #2F353A;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 40%;
+    padding: 10px;
+}
 /* ------------------------------------------------- */
 
 
