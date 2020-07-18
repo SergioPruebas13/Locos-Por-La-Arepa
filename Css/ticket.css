@@ -77,12 +77,13 @@ hr{
 }
 
 .total-limpiar{
+    /* background: red; */
     width: 90%;
 
     /* Flex */
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .total-tiket{
@@ -102,6 +103,9 @@ hr{
     color: #fff;
     padding: 0.3em;
 } 
+.button-envio{
+    /* background: red; */
+}
 
 .butt{
     width: 90%;

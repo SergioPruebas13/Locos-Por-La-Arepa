@@ -6,6 +6,8 @@ var id_obj,descripcion_obj,categoria_obj,menu_obj;
 var nombre_menu , descripcion_menu , valor_menu , id_menu, cantida_menu;
 var check_Cart = 0;
 var num_band = 0;
+var domicilio = 0;
+var boton_envio_band = 0;
 
 var button_variable = document.querySelector('#button-variable');
 
@@ -50,6 +52,9 @@ function main (){
         $('.margen-pedido').addClass('Active-margen-pedido');
         // alert(id_desc_menu)  
         ver_mas_producto(id_desc_menu);
+        // window.location.hash="no-back-button";
+        // window.location.hash="Again-No-back-button";//esta linea es necesaria para chrome
+        // window.onhashchange=function(){window.location.hash="no-back-button";}
     })
 
     // --------------------------Cerrar a la funcion de ver mas Producto
@@ -85,14 +90,41 @@ function main (){
         
         // var bool = confirm('Esta Seguro de Enviar este Pedido')
         // if(bool){
+        var veryf = verifyInput();
+
+        if (veryf) {
+            // alert('todo Ok')
             UserdataGuardarDatosLS();
-            SendMessageTiket(); 
-            $('.datos-user').removeClass('Active-datos-user');  
-            $('.pedido-tiket').removeClass('Active');
-            localStorage.removeItem('product_cart_menu');
-            CargarDatosLS();
-            pintar_cantidad_carrito();
+            SendMessageTiket();
+                    $('.datos-user').removeClass('Active-datos-user');  
+                    $('.pedido-tiket').removeClass('Active');
+                    localStorage.removeItem('product_cart_menu');
+                    CargarDatosLS();
+                    pintar_cantidad_carrito(); 
+        }else{
+            alert('Se Requiere Todos Los Datos')
+        }
+                     
         // }        
+    })
+
+    // --------------------------------- Boton de Envio 
+    $('body').on('click','#checkbox-envio-b',function(){
+        var envio_check = document.getElementById("checkbox-envio-b").checked;
+    
+        if (envio_check) {
+            // alert('si')
+            domicilio = 4000;
+            calcular_total_tiket();
+            pintar_cantidad_carrito();
+        }else{
+            // alert('no')
+            domicilio = 0;
+            calcular_total_tiket();
+            pintar_cantidad_carrito();
+        }
+
+        console.log(domicilio);
     })
     
     
@@ -103,7 +135,7 @@ function get_data (){
     var url = window.location.search;
     var url_id = url.split(`?id=`).join("");
    
-    var url = "http://127.0.0.1:5500/Data/data-base.json";    
+    var url = "https://sergiopruebas13.github.io/Locos-Por-La-Arepa/Data/data-base.json";    
         fetch(url)
         .then(function(res){
             return res.json();
@@ -441,7 +473,6 @@ function CargarDatosLS(){
 function calcular_total_tiket(){
     var total=0;
     var total_tiket = document.getElementById('total-tiket-value');
-
     var product_cart_menu = JSON.parse(localStorage.getItem('product_cart_menu'));
 
     if (product_cart_menu==null) {
@@ -452,6 +483,7 @@ function calcular_total_tiket(){
         }
     }  
     // console.log(total);
+    total = total + domicilio;
     total_tiket.innerHTML = new Intl.NumberFormat().format(total);
     if (total == 0) {
         button_variable.innerHTML = `Nuevo Pedido`;
@@ -512,12 +544,17 @@ function quitarCantidad (id_ls){
 // ----------------------------------------------- Funcion para enviar mensaje en Whatsapp
 function SendMessageTiket (){
 
+    var tipo_envio = 'Para Llevar';
     let user_data = JSON.parse(localStorage.getItem('user-data'));
     var product_cart_menu = JSON.parse(localStorage.getItem('product_cart_menu'));
     var message = "";
     var number = "573103368887";
     var valor_total = 0;
     var leng_lar;
+
+    if (domicilio > 0) {
+        tipo_envio = 'Entrega a Domicilio';
+    }
 
     if (product_cart_menu==null) {
         
@@ -551,6 +588,8 @@ function SendMessageTiket (){
                     Dirección: ${user_data.ls_user_direccion}
 
                     Barrio: ${user_data.ls_user_barrio}
+
+                    Tipo de Pedido: ${tipo_envio}
 
                     `;
     }   
@@ -677,7 +716,7 @@ function pintar_cantidad_carrito (){
             precio = precio + ((product_cart_menu[i].cantida_menu)*product_cart_menu[i].valor_menu);
         }
     }  
-    
+    precio = precio +domicilio;
 
     if (product_cart_menu == null || product_cart_menu.length == 0) {
         $('.tiket-compra').removeClass('Active-tiket-compra');
@@ -740,5 +779,24 @@ function soloLetrasynumeros(e){
      if(letras.indexOf(tecla)==-1 && !tecla_especial){
          return false;
      }
+ }
+
+ function verifyInput (){
+      var nombre_user = document.querySelector('#nombre-user');
+      var direccion_user = document.querySelector('#direccion-user');
+      var barrio_user = document.querySelector('#barrio-user');
+      var very = true;
+
+    if (nombre_user.value.length == 0) {
+        very = false;
+    }
+    if (direccion_user.value.length == 0) {
+        very = false;
+    }
+    if (barrio_user.value.length == 0) {
+        very = false;
+    }
+
+    return very;
  }
 

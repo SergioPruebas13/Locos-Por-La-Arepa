@@ -4,23 +4,55 @@
             "id": 1,
             "descripcion": 
                 {
-                    "categoria": "pollo",
+                    "categoria": "Comida Rapida",
                     "nombre": "Locos Por La Arepa",
-                    "producto": "Arepas, Hamburguesas",
+                    "producto": "Restaurante De Comida Rápida",
                     "direccion": "Calle 5b # 7-19 local 6",
                     "local": "Tunja, Boyaca",
-                    "img": "https://i.postimg.cc/jjCd20YC/index-menu.png"
+                    "img": "https://i.postimg.cc/jjCd20YC/index-menu.png",
+                    "domicili_value": 4000
+                },
+            "estados_servicios": {
+                    "consumo_lugar": false,
+                    "para_llevar": true,
+                    "entrega_domicilio": true
                 },
             "horario_atencion":
                 [
                     {
-                        "lunes": "14 - 23",
-                        "martes": "14 - 23",
-                        "miercoles": "14 - 23",
-                        "jueves": "18 - 23",
-                        "viernes": "18 -23",
-                        "sabado": "18 -23",
-                        "domingo": "12 - 23"
+                        "day": "Domingo",
+                        "open": 16,
+                        "close": 23
+                    },
+                    {
+                        "day": "Lunes",
+                        "open": 16,
+                        "close": 23
+                    },
+                    {
+                        "day": "Martes",
+                        "open": 16,
+                        "close": 23
+                    },
+                    {
+                        "day": "Miercoles",
+                        "open": 16,
+                        "close": 23
+                    },
+                    {
+                        "day": "Jueves",
+                        "open": 18,
+                        "close": 23
+                    },
+                    {
+                        "day": "Viernes",
+                        "open": 18,
+                        "close": 23
+                    },
+                    {
+                        "day": "Sabado",
+                        "open": 18,
+                        "close": 23
                     }
                 ],                
             "menu":

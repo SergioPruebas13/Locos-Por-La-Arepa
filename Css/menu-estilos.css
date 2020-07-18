@@ -120,7 +120,7 @@ body{
 .pedido-ejemplo{
     /* background: rebeccapurple; */
     width: 96%;
-    height: 95%;
+    height: 100%;
     margin: auto;
 
 
@@ -170,7 +170,7 @@ body{
 
 .descripcion-producto{
     /* background: red; */
-    height: 55px;
+    height: 60px;
     color: #626466;
     text-align: justify;
     margin-right: 5px;
@@ -181,14 +181,17 @@ body{
 .precio-button{
     /* background: blue; */
     height: 20%;
-
+  
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
 }
 
 .precio-button span{
     font-weight: bold;
+    font-size: 14.5px;
+    margin-left: 15px;
 }
 
 .precio-button button{

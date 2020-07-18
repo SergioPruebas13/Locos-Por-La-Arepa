@@ -44,7 +44,7 @@ body{
 #categorias-productos{
     width: 70%;
     padding: 2%;
-    margin-bottom: 2.2%;
+    /* margin-bottom: 2.2%; */
    
 }
 
@@ -70,29 +70,29 @@ body{
 /* Card-Empresas */
 
 .card-empresas{
-    background: #2F353A;
+    /* background: #2F353A; */
+    /* background: red; */
     /* border: 1px solid #000; */
     border-radius: 10px;
     /* width: 90%; */
     width: 280px;
     height: 60vh;
     margin: auto;
-    margin-bottom: 5%;
 }
 
 .card-image{
-    /* background: red; */
-    height: 63%;
+    /* background: yellow; */
+    height: 55%;
     /* flex */
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
 }
 
 .card-image img{
     background: #2F353A;
     width: 75%;
-    height: 80%;
+    height: 90%;
 }
 
 .card-opciones{
@@ -189,3 +189,89 @@ body{
     width: 100vw;
     height: 100vh;
 } */
+
+
+/* -------- DESCIPCION DE DATA ---------- */
+
+.descripcion-estado{
+    /* background: #fff; */
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.servicios-horario-descr{
+    /* background: yellow; */
+    width: 95%;
+}
+
+.servicios-descr{
+    /* background: red; */
+    width: 80%;
+    margin: auto;
+}
+
+.servicio-title{
+    /* background: yellowgreen; */
+    color: #fff;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.servicio-si{
+    color: #00ff22;
+    font-size: 20px;
+    margin-right: 10px;
+    margin-left: 23px;
+}
+
+.servicio-no{
+    color: #ff0000;
+    font-size: 20px;
+    margin-right: 10px;
+    margin-left: 23px;
+}
+
+.servicios-letter{
+    color: #a4aeb3;
+    font-size: 1.1em;
+}
+
+.horarios-descr{
+    /* background: red; */
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.horario-title{
+    color: #fff;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: center;
+}
+
+.time-servicios{
+    /* background: yellowgreen; */
+    text-align: center;
+    margin: 15px 0 10px 0;
+}
+
+.day-hours-si{
+    color: #00ff22;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.day-hours-no{
+    color: #a4aeb3;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+
+
+/* -------------------------------------- */
