@@ -550,10 +550,12 @@ function SendMessageTiket (){
     var message = "";
     var number = "573103368887";
     var valor_total = 0;
+    var mas_domicilio = ''
     var leng_lar;
 
     if (domicilio > 0) {
         tipo_envio = 'Entrega a Domicilio';
+        mas_domicilio = 'Mas Envio';
     }
 
     if (product_cart_menu==null) {
@@ -580,8 +582,9 @@ function SendMessageTiket (){
 
                             `;
         }
+        valor_total = valor_total + domicilio;
         message +=  `
-                    Valor Total: $ ${new Intl.NumberFormat().format(valor_total)}
+                    Valor Total: $ ${new Intl.NumberFormat().format(valor_total)} ${mas_domicilio}
                     
                     Nombre: ${user_data.ls_user_nombre}
 
