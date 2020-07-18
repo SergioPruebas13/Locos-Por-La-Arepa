@@ -548,7 +548,7 @@ function SendMessageTiket (){
     let user_data = JSON.parse(localStorage.getItem('user-data'));
     var product_cart_menu = JSON.parse(localStorage.getItem('product_cart_menu'));
     var message = "";
-    var number = "573103368887";
+    var number = "573143480319";
     var valor_total = 0;
     var mas_domicilio = ''
     var leng_lar;
