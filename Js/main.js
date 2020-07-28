@@ -1,1 +1,307 @@
-eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('$(x).1J(1b);7 y=[];7 H,r,I,z,E;q 1b(){1c();$(\'1K\').1L(\'1M\',\'#1d-1e\',q(){1f()})}q 1c(){7 c=[];7 d="1g://1N.1O.1P/1h-1i-1j-1k/1Q/T-1R.1l";1S(d).1m(q(a){t a.1l()}).1m(q(a){A(J i=0;i<a.B.K;i++){H=a.B[i].U;r=a.B[i].V;I=a.B[i].V.W;z=a.B[i].1T;E=a.B[i].1U;7 b={H,r,I,z,E};c.1n(b)}Y(c)})c=y}q Y(b){7 c=x.1o(\'1p\');7 d=x.1o(\'Z-u-1q\');7 e="";7 f="";7 g=1r(b);7 h=1s(b);7 i=1t(b);e+=`<m 9="L-1V"><m 9="L-1W"><11 1u="${T[0].r.11}"></m><m 9="L-1X"><n 9="${1Y.1Z}"U="h-s">${g.20}</n></m><m 9="L-V"><p>${b[0].r.21}<v>${b[0].r.22}<v>${b[0].r.1v}</p></m><m 9="24-13"><a 25="/1h-1i-1j-1k/26/13.27?U=${T[0].H}"><11 1u="1g://i.28.29/2a/2b-13.2c">2d 2eú</a></m></m>`;f+=`${i}${h}`;c.F+=e;d.F+=f}q 2f(a,b){7 c=[];7 d={};A(7 i 1w a){d[a[i][b]]=a[i]}A(i 1w d){c.1n(d[i])}t c}q 1f(){7 a=0;7 b=[];7 c=x.14(\'#1d-1e\');7 d=x.14(\'#2g-2h\');7 e=x.14(\'#1p\');A(J i=0;i<y.K;i++){8(c.G.2i()==y[i].I){b[a]=y[i];a++}}8(c.G==\'1x 1y W\'||c.G==\'2j\'){b=y}e.F="";8(c.G==\'1x 1y W\'){d.F=`<M>2k</M>`}o{d.F=`<M>${c.G}</M>`}Y(b)}q 1r(a){7 b=1z 1A();7 c=a[0].E;7 d,15;7 e=b.2l();7 f=b.2m();7 g;7 h="";A(J i=0;i<c.K;i++){8(i==(b.1B())){d=c[i].17;15=c[i].18}}8(e>=d&&e<15){8(e>12){8(f<10){h=`${e-12}:0${f}C-1C O`}o{h=`${e-12}:${f}C-1C O`}}o{8(f<10){h=`${e}:0${f}D-1D O`}o{h=`${e}:${f}D-1D O`}}g=`e-1E-17`}o{8(e>12){8(f<10){h=`${e-12}:0${f}C-P`}o{h=`${e-12}:${f}C-P`}}o{8(f<10){h=`${e}:0${f}D-P`}o{h=`${e}:${f}D-P`}}g=`e-1E-18`}t{h,g}}q 1t(b){7 c=b[0].z.2n;7 d=b[0].z.2o;7 e=b[0].z.2p;7 f=\'w-Q\';7 g=\'w-Q\';7 h=\'w-Q\';7 i=\'X\';7 j=\'X\';7 k=\'X\';8(c){f=\'w-R\';i=\'✓\'}8(d){g=\'w-R\';j=\'✓\'}8(e){h=\'w-R\';k=\'✓\'}7 l;l=`<m 9="u-Z"><n 9="w-1F">2q</n><m 9="u-1v"><n 9="${2r}">${j}</n><n 9="u-19">2s a 2t</n><v><n 9="${2u}">${k}</n><n 9="u-19">2v 2w</n><v><n 9="${2x}">${i}</n><n 9="u-19">2y 2z 2A 2B</n><v></m></m><v>`;t l}q 1s(a){7 b=a[0].E;7 c;7 d=1z 1A();7 e="";A(J i=0;i<b.K;i++){c=`1G-1H-Q`;8((d.1B())==i){c=`1G-1H-R`}e+=`<p 9="${2C}">${1I(i)}<v>${1a(b[i].17)}-${1a(b[i].18)}</p>`}7 f=`<m 9="2D-Z"><n 9="1q-1F">2E 2F 2GÓN</n><m 9="2H-u">${e}</m></m>`;t f}q 1a(a){7 b="";8(a>=16&&a<23){8(a>12){b=`${a-12}:S C`}o{b=`${a}:S D`}}o{8(a>12){b=`${a-12}:S C`}o{b=`${a}:S D`}}t b}q 1I(a){7 b="";8(a==0){b=`2I`}o 8(a==1){b=`2J`}o 8(a==2){b=`2K`}o 8(a==3){b=`2L`}o 8(a==4){b=`2M`}o 8(a==5){b=`2N`}o 8(a==6){b=`2O`}t b}',62,175,'|||||||var|if|class|||||||||||||div|span|else||function|descripcion_obj||return|servicios|br|servicio|document|main_productos|estados_servicios_obj|for|comidas|pm|am|horario_atencion_obj|innerHTML|value|id_obj|categoria_obj|let|length|card|h3||Servicio|Cerrado|no|si|00|data|id|descripcion|categoria||cargar_data|descr||img||menu|querySelector|close_hora||open|close|letter|obtenerHora_2|main|get_data|categorias|productos|caragar_categoria|https|Locos|Por|La|Arepa|json|then|push|getElementById|empresas_reciente|horario|obtenerHora|obtenerDaysService|obtenerEstatusServices|src|local|in|Selecciona|una|new|Date|getDay|En|AbiertEn|status|title|day|hours|obtenerDia|ready|body|on|change|sergiopruebas13|github|io|Data|base|fetch|estados_servicios|horario_atencion|empresas|image|opciones|getStatus|class_OpnClos|ret|producto|direccion||ver|href|Menu|html|postimg|cc|2Sf50ZDF|icon|png|Ver|Men|removeDuplicates|titulo|recientes|toLowerCase|Todas|Recientes|getHours|getMinutes|consumo_lugar|entrega_domicilio|para_llevar|SERVICIOS|entrega_domicilio_cla|Entrega|domicilio|para_llevar_cla|Para|llevar|consumo_lugar_cla|Consumo|en|el|lugar|days_hours_style|horarios|HORARIOS|DE|ATENCI|time|Domingo|Lunes|Martes|Miercoles|Jueves|Viernes|Sabado'.split('|'),0,{}))
+$(document).ready(main);
+// variables
+var main_productos = [];
+
+var id_obj,descripcion_obj,categoria_obj,estados_servicios_obj,horario_atencion_obj;
+
+
+function main (){
+    // Obtener los datos de JSON
+     get_data();
+    
+    //  $('body').on('click', '#buscar-categoria', function(){
+    //     caragar_categoria();
+    // }) 
+
+    $('body').on('change', '#categorias-productos', function(){
+        caragar_categoria();
+    }) 
+
+    
+    
+}
+
+// Cargar data
+function get_data (){
+    var array_temp =[];
+    
+   
+    var url = "https://sergiopruebas13.github.io/Locos-Por-La-Arepa/Data/data-base.json";
+    
+        fetch(url)
+        .then(function(res){
+            return res.json();
+        })
+        .then(function(rep){
+           for (let i = 0; i < rep.comidas.length; i++) {
+                id_obj =  rep.comidas[i].id;
+                descripcion_obj =  rep.comidas[i].descripcion;
+                categoria_obj = rep.comidas[i].descripcion.categoria;
+                estados_servicios_obj = rep.comidas[i].estados_servicios;
+                horario_atencion_obj = rep.comidas[i].horario_atencion;
+                
+                var obj = {id_obj,descripcion_obj,categoria_obj,estados_servicios_obj,horario_atencion_obj};
+                array_temp.push(obj);
+           }
+           cargar_data(array_temp);
+        //    cargar_categorias_combobox();        
+        })    
+        array_temp = main_productos;  
+}
+
+function cargar_data (data){
+    var empresas_reciente = document.getElementById('empresas_reciente');
+    var descr_servicios_horario = document.getElementById('descr-servicios-horario');
+    var html = "";
+    var html_service_hours = "";
+    var getStatus = obtenerHora(data);    
+    var getdaysSeriv = obtenerDaysService(data);
+    var getStatusService = obtenerEstatusServices(data);
+        html += `
+                <div class="card-empresas">
+                    <div class="card-image">
+                        <img src="${data[0].descripcion_obj.img}">
+                    </div>
+                    <div class="card-opciones">
+                            <span class="${getStatus.class_OpnClos}" id="h-s">
+                                ${getStatus.ret}
+                            </span>
+                    </div>
+                    <div class="card-descripcion">
+                        <p>
+                            ${data[0].descripcion_obj.producto} <br>
+                            ${data[0].descripcion_obj.direccion} <br>
+                            ${data[0].descripcion_obj.local}
+                        </p>
+                    </div>
+                    <div class="ver-menu">
+                        <a href="/Locos-Por-La-Arepa/Menu/menu.html?id=${data[0].id_obj}">
+                        <img src="https://i.postimg.cc/2Sf50ZDF/icon-menu.png">
+                        Ver Menú
+                        </a>
+                    </div>
+                </div>
+                `;
+        html_service_hours += 
+        `
+        ${getStatusService}
+        ${getdaysSeriv}
+        `;
+    empresas_reciente.innerHTML += html;
+    descr_servicios_horario.innerHTML += html_service_hours;
+   
+}
+
+
+function removeDuplicates(originalArray, prop) {//Eliminar Duplicados de JSON
+    var newArray = [];
+    var lookupObject  = {};
+    
+    for(var i in originalArray) {
+       lookupObject[originalArray[i][prop]] = originalArray[i];
+    }
+    for(i in lookupObject) {
+        newArray.push(lookupObject[i]);
+    }
+     return newArray;
+}
+
+function caragar_categoria (){
+    var num_filtro = 0;
+    var filtroArray = [];
+    var selec = document.querySelector('#categorias-productos');
+    var title = document.querySelector('#titulo-recientes');
+    var empresas_reciente = document.querySelector('#empresas_reciente');
+    
+
+            for (let i = 0; i < main_productos.length; i++) {
+                if (selec.value.toLowerCase() == main_productos[i].categoria_obj ) {
+                    filtroArray[num_filtro] =  main_productos[i];
+                    num_filtro++;
+                }
+            }
+            if (selec.value == 'Selecciona una categoria' || selec.value == 'Todas') {
+                  filtroArray = main_productos;
+            }
+            empresas_reciente.innerHTML = "";
+            if (selec.value == 'Selecciona una categoria') {
+                title.innerHTML = ` <h3>Recientes</h3>`;
+            }else{
+                title.innerHTML = ` <h3>${selec.value}</h3>`;
+            }
+            cargar_data(filtroArray);
+}
+
+
+function obtenerHora (data_){
+    var dat = new Date();
+    var arra = data_[0].horario_atencion_obj;
+    var open_hora,close_hora;
+    var hora = dat.getHours();
+    var minuto = dat.getMinutes();
+    var class_OpnClos;
+    var ret = "";
+
+    for (let i = 0; i < arra.length; i++) {
+        if (i == (dat.getDay())) {
+            open_hora = arra[i].open;
+            close_hora = arra[i].close;
+        }
+    }
+ 
+        if (hora >= open_hora && hora < close_hora) {
+            if (hora > 12) {
+                if (minuto < 10) {
+                    ret = `${hora - 12}:0${minuto} pm - En Servicio`;
+                }else{
+                    ret = `${hora - 12}:${minuto} pm - En Servicio`;
+                }
+            }else{
+                if (minuto < 10) {
+                    ret = `${hora}:0${minuto} am - AbiertEn Servicio`;   
+                }else{
+                    ret = `${hora}:${minuto} am - AbiertEn Servicio`;
+                }
+            }
+           
+            class_OpnClos = `hora-status-open`;
+        }
+        else{
+            if (hora > 12) {
+                if (minuto < 10) {
+                    ret = `${hora-12}:0${minuto} pm - Cerrado`;   
+                }else{
+                    ret = `${hora-12}:${minuto} pm - Cerrado`;
+                }
+            }else{
+                if (minuto < 10) {
+                    ret = `${hora}:0${minuto} am - Cerrado`;   
+                }else{
+                    ret = `${hora}:${minuto} am - Cerrado`;
+                }
+            }
+            class_OpnClos = `hora-status-close`;
+        }
+    
+    return {
+        ret,
+        class_OpnClos
+    }
+}
+
+function obtenerEstatusServices (data_){
+    var consumo_lugar_ = data_[0].estados_servicios_obj.consumo_lugar;
+    var entrega_domicilio_ = data_[0].estados_servicios_obj.entrega_domicilio;
+    var para_llevar_ = data_[0].estados_servicios_obj.para_llevar;
+    var consumo_lugar_cla = 'servicio-no';
+    var entrega_domicilio_cla = 'servicio-no';
+    var para_llevar_cla = 'servicio-no';
+    var cl_yes_no = 'X';
+    var ed_yes_no = 'X';
+    var pl_yes_no = 'X';
+    
+    if (consumo_lugar_) {
+        consumo_lugar_cla = 'servicio-si';
+        cl_yes_no = '✓';
+    }
+    if (entrega_domicilio_) {
+        entrega_domicilio_cla = 'servicio-si';
+        ed_yes_no = '✓';
+    }
+    if (para_llevar_) {
+        para_llevar_cla = 'servicio-si';
+        pl_yes_no = '✓';
+    }
+
+    var servicios_descr_html;
+
+    servicios_descr_html =  `
+                            <div class="servicios-descr">
+                                <span class="servicio-title">SERVICIOS</span>
+                                <div class="servicios-local">
+                                    <span class="${entrega_domicilio_cla}">${ed_yes_no}</span> <span class="servicios-letter">Entrega a domicilio</span><br>
+                                    <span class="${para_llevar_cla}">${pl_yes_no}</span> <span class="servicios-letter">Para llevar</span><br>
+                                    <span class="${consumo_lugar_cla}">${cl_yes_no}</span> <span class="servicios-letter">Consumo en el lugar</span><br>
+                                </div>
+                            </div>
+                            <br>
+                            `;
+        return servicios_descr_html;
+}
+
+function obtenerDaysService (data_){
+    var array = data_[0].horario_atencion_obj;
+    var days_hours_style;
+    var dat = new Date();
+    var html_day_hous = "";
+    
+    for (let i = 0; i < array.length; i++) {
+        days_hours_style = `day-hours-no`;
+        if ((dat.getDay()) == i) {
+            days_hours_style = `day-hours-si`;
+        }
+        html_day_hous += `<p class="${days_hours_style}">${obtenerDia(i)}<br> ${obtenerHora_2(array[i].open)} - ${obtenerHora_2(array[i].close)}</p>`;
+    }
+
+    var ret =   `
+            <div class="horarios-descr">
+                <span class="horario-title">HORARIOS DE ATENCIÓN</span>
+                <div class="time-servicios">
+                    ${html_day_hous}
+                </div>
+            </div>
+                `;
+        return ret;
+}
+
+function obtenerHora_2 (hora){
+    var ret = "";
+
+    if (hora >= 16 && hora < 23) {
+        if (hora > 12) {
+            ret = `${hora - 12}:00 pm`;
+        }else{
+            ret = `${hora}:00 am`;   
+        }
+    }
+    else{
+        if (hora > 12) {
+            ret = `${hora-12}:00 pm`;               
+        }else{
+            ret = `${hora}:00 am`;
+        }
+    }
+
+    return ret;
+}
+
+function obtenerDia (dia_number){
+    var dia = "";
+    if (dia_number == 0) {
+         dia = `Domingo`
+    }else 
+    if (dia_number == 1) {
+        dia = `Lunes`
+    }else 
+    if (dia_number == 2) {
+        dia = `Martes`
+    }else 
+    if (dia_number == 3) {
+        dia = `Miercoles`
+    }else 
+    if (dia_number == 4) {
+        dia = `Jueves`
+    }else 
+    if (dia_number == 5) {
+        dia = `Viernes`
+    }else 
+    if (dia_number == 6) {
+        dia = `Sabado`
+    }
+
+    return dia;
+}
+
+
+
+
